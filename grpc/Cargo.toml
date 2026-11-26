@@ -1,0 +1,27 @@
+[package]
+name = "partsrelay-grpc"
+version = "0.0.0"
+description = "Client of the Parts Relay public API"
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+http = "1.4"
+hyper-rustls = { version = "0.27.10", default-features = false, features = ["http1", "ring", "webpki-tokio"] }
+hyper-util = { version = "0.1.21", features = ["client-legacy", "http1", "tokio"] }
+prost = "0.14.6"
+tonic = { version = "0.14.9", default-features = false, features = ["codegen"] }
+tonic-prost = "0.14.9"
+tonic-web = "0.14.9"
+tower = "0.5.3"
+
+[build-dependencies]
+protoc-bin-vendored = "3.3.0"
+tonic-prost-build = "0.14.9"
+
+[dev-dependencies]
+bytes = "1.12"
+http-body-util = "0.1"
+hyper = { version = "1", features = ["http1", "server"] }
+tokio = { version = "1.54", features = ["macros", "net", "rt-multi-thread"] }
