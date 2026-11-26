@@ -20,12 +20,12 @@ struct Shelf {
 
 fn pads() -> v1::Article {
     v1::Article {
-        id: Some(v1::article::Id::IdNumber(1042)),
+        id: "1042".into(),
         brand: "BREMBO".into(),
         code: "P 23 141".into(),
         description: Some("Brake pad set".into()),
         quantity: 4,
-        price: Some("48.90".into()),
+        price: Some(48.9),
         currency: Some("EUR".into()),
     }
 }
@@ -112,7 +112,7 @@ async fn refuses_a_call_that_names_no_company() {
 #[tokio::test]
 async fn answers_the_health_check_of_the_core() {
     let (url, _stop) = connect(Shelf::default()).await;
-    let service = "partsrelay.connect_api.v1.ArticleService".to_owned();
+    let service = "connect_api.v1.ArticleService".to_owned();
 
     let channel = Endpoint::new(url).unwrap().connect().await.unwrap();
 

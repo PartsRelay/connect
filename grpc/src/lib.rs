@@ -14,9 +14,9 @@ use tonic_health::pb::HealthCheckRequest;
 use tonic_health::pb::health_check_response::ServingStatus;
 use tonic_health::pb::health_client::HealthClient;
 
-/// The messages, the server and the client of `partsrelay.connect_api.v1`.
+/// The messages, the server and the client of `connect_api.v1`.
 pub mod v1 {
-    tonic::include_proto!("partsrelay.connect_api.v1");
+    tonic::include_proto!("connect_api.v1");
 }
 
 use v1::article_service_server::{ArticleService, ArticleServiceServer};
